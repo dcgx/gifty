@@ -1,0 +1,48 @@
+#BUSCAR ELEMENTO
+# Crear un diccionario que represente el inventario
+productos = {
+    'giftcard': 50,
+    'flores': 30,
+    'chocolates': 50,
+    'tazones': 15
+}
+
+# Función para buscar un elemento en el inventario
+def buscar_elemento(productos, elemento):
+    if elemento in productos:
+        cantidad = productos[elemento]
+        return f"El inventario tiene una cantidad de {cantidad} {elemento}."
+    else:
+        return f"{elemento} no se encuentra en el inventario."
+
+
+elemento_buscado = 'giftcard'
+resultado = buscar_elemento(productos, elemento_buscado)
+print(resultado)
+
+_________________________________________________________________________________
+
+#CONTROL DE STOCK: Alertar sobre stock bajo de un producto
+# Crear un diccionario que represente el inventario
+productos = {
+    'giftcard': 5,
+    'flores': 30,
+    'chocolates': 50,
+    'tazones': 15
+}
+
+# Función para verificar la cantidad de un elemento en el inventario
+def verificar_cantidad(productos, elemento):
+    if elemento in productos:
+        cantidad = productos[elemento]
+        if cantidad < 10:
+            return f"¡Inventario bajo! La cantidad de {elemento} es baja ({cantidad} unidades, se debe solicitar un nuevo ingreso)."
+        else:
+            return f"El inventario tiene {cantidad} {elemento}."
+    else:
+        return f"{elemento} no se encuentra en el inventario."
+
+# Ejemplo de uso
+elemento_buscado = 'giftcard'
+resultado = verificar_cantidad(productos, elemento_buscado)
+print(resultado)
