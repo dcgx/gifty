@@ -1,6 +1,6 @@
-from gestion_producto import *
-from inventario import *
-from reportes import *
+from gestion_productos import agregar_producto, modificar_producto, eliminar_producto
+from inventario import inventario, buscar_producto, stock
+from reportes import reportes
 
 def mostrar_menu(opciones):
     print('Seleccione una opción:\n')
@@ -25,7 +25,7 @@ def generar_menu(opciones, opcion_salida):
 
 def menu_principal():
     opciones = {
-        '1': ('Gestión Productos', gestion_producto),
+        '1': ('Gestión Productos', gestion_productos),
         '2': ('Inventario', inventario),
         '3': ('Buscar Producto', buscar_producto),
         '4': ('Stock', stock),
@@ -34,7 +34,7 @@ def menu_principal():
     }
     generar_menu(opciones, '6')
 
-def gestion_producto():
+def gestion_productos():
     print("\n=== Gestionar Productos ===\n")
     submenu = {
         '1': ('Agregar Producto', agregar_producto),
