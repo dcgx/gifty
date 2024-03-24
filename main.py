@@ -1,5 +1,5 @@
-from gestion_productos import agregar_producto, modificar_producto, eliminar_producto
-from inventario import inventario, buscar_producto, stock
+from gestion_productos import agregar_producto, modificar_producto, eliminar_producto, vender_producto
+from inventario import inventario, ingresar_producto_a_buscar, stock, ventas
 from reportes import reportes
 
 def mostrar_menu(opciones):
@@ -25,24 +25,26 @@ def generar_menu(opciones, opcion_salida):
 
 def menu_principal():
     opciones = {
-        '1': ('Gestión Productos', gestion_productos),
-        '2': ('Inventario', inventario),
-        '3': ('Buscar Producto', buscar_producto),
-        '4': ('Stock', stock),
-        '5': ('Reportes', reportes),
-        '6': ('Salir', salir)
+        '1': ('Gestión Productos', gestion_producto),
+        '2': ('Stock', stock), 
+        '3': ('Ventas', ventas),
+        '4': ('Inventario', inventario),
+        '5': ('Buscar Producto', ingresar_producto_a_buscar),
+        '6': ('Reportes', reportes),
+        '7': ('Salir', salir)
     }
     generar_menu(opciones, '6')
 
-def gestion_productos():
+def gestion_producto():
     print("\n=== Gestionar Productos ===\n")
     submenu = {
-        '1': ('Agregar Producto', agregar_producto),
-        '2': ('Modificar Producto', modificar_producto),
-        '3': ('Eliminar Producto', eliminar_producto),
-        '4': ('Volver atrás', lambda: print('Volviendo...'))
+        '1': ('Vender Producto', vender_producto),
+        '2': ('Agregar Producto', agregar_producto),
+        '3': ('Modificar Producto', modificar_producto),
+        '4': ('Eliminar Producto', eliminar_producto),
+        '5': ('Volver atrás', lambda: print('Volviendo...'))
     }
-    generar_menu(submenu, '4')
+    generar_menu(submenu, '5')
 
 def salir():
     print('Saliendo...')
